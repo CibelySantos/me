@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Smooth Scrolling para âncoras (navegação)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -8,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                // Rola suavemente até o elemento, considerando a altura do navbar fixo
-                const offset = 90; // Ajuste conforme a altura do seu navbar
+                const offset = 90;
                 const targetPosition = targetElement.offsetTop - offset;
 
                 window.scrollTo({
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Exemplo: Destacar o link da navegação ao rolar
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -29,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            // O 150 é um offset para que o link mude antes de a seção tocar o topo
             if (window.scrollY >= sectionTop - 150) {
                 current = section.getAttribute('id');
             }
@@ -44,9 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', highlightNavOnScroll);
-    highlightNavOnScroll(); // Chama no carregamento para a seção inicial
+    highlightNavOnScroll(); 
     
-    // 3. Adicione o estilo 'active' para visualização do JS
     const styleSheet = document.createElement("style");
     styleSheet.innerHTML = `
         .nav-links a.active {
